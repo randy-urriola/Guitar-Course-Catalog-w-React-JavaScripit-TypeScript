@@ -1,12 +1,7 @@
 import { useMemo } from "react";
 
-export default function Header({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart }) {
-	// el hook useMemo y state derivados (de cart)
-	const isEmpty = useMemo(() => cart.length === 0, [cart]); // para no crear un state nuevo de const [cart, setCart] = useState([]); se usa un derivado
-	// useMemo renderiza solo los elementos cuando uno en especifico cambia. (valor a renderiza, elemento que cambia)
-	const carTotal = useMemo(() =>
-		cart.reduce((total, item) => total + item.quantity * item.price, 0, [cart])
-	);
+export default function Header({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, isEmpty, carTotal }) {
+	
 
 	return (
 		<header className="py-5 header">
