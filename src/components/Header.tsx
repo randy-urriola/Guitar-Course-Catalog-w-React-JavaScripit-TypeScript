@@ -1,8 +1,24 @@
-import { useMemo } from "react";
+import type { CartItem, Guitar } from '../types';
 
-export default function Header({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, isEmpty, carTotal }) {
-	
+type HeaderProps = {
+	cart: CartItem[];
+	removeFromCart: (id: Guitar['id']) => void;
+	increaseQuantity: (id: Guitar['id']) => void;
+	decreaseQuantity: (id: Guitar['id']) => void;
+	clearCart: () => void;
+	isEmpty: boolean;
+	carTotal: number
+};
 
+export default function Header({
+	cart,
+	removeFromCart,
+	increaseQuantity,
+	decreaseQuantity,
+	clearCart,
+	isEmpty,
+	carTotal,
+}: HeaderProps) {
 	return (
 		<header className="py-5 header">
 			<div className="container-xl">
@@ -14,11 +30,7 @@ export default function Header({ cart, removeFromCart, increaseQuantity, decreas
 					</div>
 					<nav className="col-md-6 a mt-5 d-flex align-items-start justify-content-end">
 						<div className="carrito">
-							<img
-								className="img-fluid"
-								src="/img/carrito.png"
-								alt="imagen carrito"
-							/>
+							<img className="img-fluid" src="/img/carrito.png" alt="imagen carrito" />
 
 							<div id="carrito" className="bg-white p-3">
 								{isEmpty ? (
@@ -83,7 +95,9 @@ export default function Header({ cart, removeFromCart, increaseQuantity, decreas
 									</>
 								)}
 
-								<button className="btn btn-dark w-100 mt-3 p-2" onClick={clearCart}>Vaciar Carrito</button>
+								<button className="btn btn-dark w-100 mt-3 p-2" onClick={clearCart}>
+									Vaciar Carrito
+								</button>
 							</div>
 						</div>
 					</nav>
