@@ -1,0 +1,6 @@
+@BackendGuitar_HostAddress = http://localhost:5127
+
+GET {{BackendGuitar_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
